@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: GSAMCatalog
+  datasource:
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5433/catalog
+    driver-class-name: org.postgresql.Driver
+  batch:
+    jdbc:
+      initialize-schema: always
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: create
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:my-secret-key}
+logging:
+  level:
+    sql: debug
